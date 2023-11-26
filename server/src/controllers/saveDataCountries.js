@@ -30,13 +30,6 @@ const saveDataCountries = async () => {
   return Promise.all(promises).then(() => {
     return "informacion guardada en la base de datos";
   });
-
-  // --------------------------------------------------------
-
-  // data.forEach((country) => {
-  //   const { cca3 } = country;
-  //   console.log(cca3);
-  // });
 };
 
 module.exports = saveDataCountries;
