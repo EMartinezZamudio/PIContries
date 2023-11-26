@@ -1,9 +1,8 @@
-const axios = require("axios");
 const server = require("./src/server");
 const { conn } = require("./src/db.js");
 
 // controlador para guardar la informacion de la api en la base de datos
-const saveDataCountries = require("./src/controllers/saveDataCountries.js");
+// const saveDataCountries = require("./src/controllers/saveDataCountries.js");
 
 const PORT = 3001;
 
@@ -11,12 +10,10 @@ conn
   .sync({ force: true })
   .then(() => {
     server.listen(PORT, async () => {
-      try {
-        await saveDataCountries();
-        console.log(`Server listening on port ${PORT}`);
-      } catch (error) {
-        console.log(error.message);
-      }
+      // const response = await saveDataCountries();
+      // console.log(response);
+
+      console.log(`Server listening on port ${PORT}`);
     });
   })
-  .catch((error) => console.error(error));
+  .catch((error) => console.error(error.message));

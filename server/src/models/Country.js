@@ -7,8 +7,7 @@ module.exports = (sequelize) => {
     "Country",
     {
       id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
+        type: DataTypes.STRING,
         primaryKey: true,
         allowNull: false,
       },
@@ -27,6 +26,7 @@ module.exports = (sequelize) => {
       },
       subregion: {
         type: DataTypes.STRING,
+        defaultValue: "Sin Definir",
       },
       area: {
         type: DataTypes.DECIMAL,
