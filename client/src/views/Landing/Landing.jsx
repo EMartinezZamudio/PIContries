@@ -1,11 +1,14 @@
+// modulos
 import { Link } from "react-router-dom";
+
+// estilos
+import { landing, btnLanding } from "./Landing.module.css";
 
 const Landing = () => {
   return (
-    <div>
-      <h1>Landing</h1>
+    <div className={landing}>
       <Link to={"/home"}>
-        <button>Home</button>
+        <button className={btnLanding}>Comenzar</button>
       </Link>
     </div>
   );

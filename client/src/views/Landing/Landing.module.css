@@ -1,0 +1,20 @@
+.landing {
+  display: flex;
+  justify-content: center;
+  margin-top: 400px;
+}
+
+.btnLanding {
+  width: 400px;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+  transition: 210ms;
+}
+
+.btnLanding:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 15px;
+  color: white;
+}

@@ -3,6 +3,10 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 // componentes
 import Landing from "./views/Landing/Landing";
+import Navbar from "./components/Navbar/Navbar";
+
+// estilos
+import { app } from "./App.module.css";
 
 function App() {
   // hook de react-ruter
@@ -13,8 +17,8 @@ function App() {
   if (pathname === "/home") body.className = "bg-home";
 
   return (
-    <div>
-      <h1>Nav Bar</h1>
+    <div className={app}>
+      {pathname !== "/" && <Navbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
       </Routes>
