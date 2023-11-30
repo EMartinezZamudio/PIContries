@@ -24,15 +24,10 @@
 }
 
 .tituloLanding {
+  background: linear-gradient(45deg, #2e86de, #1dd1a1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 84px;
   font-style: normal;
-}
-
-.span1 {
-  color: #4b7bec;
-  margin: 35px;
-}
-
-.span2 {
-  color: #778ca3;
 }

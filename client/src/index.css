@@ -1,7 +1,11 @@
+#root {
+  width: 100%;
+}
+
 body {
   color: white;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: sans-serif;
+  margin: 0;
 }
 
 .bg-landing {
