@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 // componentes
 import Landing from "./views/Landing/Landing";
 import Navbar from "./components/Navbar/Navbar";
+import Home from "./views/Home/Home";
 
 // estilos
 import { app } from "./App.module.css";
@@ -21,6 +22,7 @@ function App() {
       {pathname !== "/" && <Navbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </div>
   );
