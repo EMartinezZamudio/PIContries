@@ -1,0 +1,37 @@
+.borderInput {
+  font-size: 22px;
+  width: 350px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  border: 2px solid #3498db;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+.inputSearchbar {
+  color: #3498db;
+  background-color: transparent;
+  width: 267px;
+  height: 34px;
+  border: none;
+  margin-left: 13px;
+}
+
+.btnSearchbar {
+  color: #3498db;
+  background-color: transparent;
+  font-size: 30px;
+  display: grid;
+  place-items: center;
+  height: 38px;
+  border: 2px solid transparent;
+  border-radius: 0 14px 14px 0;
+  transition: 210ms;
+}
+
+.btnSearchbar:hover {
+  color: black;
+  background-color: #3498db;
+  border: 2px solid #3498db;
+}
