@@ -10,8 +10,8 @@ const router = Router();
 
 router.get("/countries", async (req, res) => {
   try {
-    const { name } = req.query;
-    const countries = await getCountries(name);
+    const { name, pag } = req.query;
+    const countries = await getCountries(name, pag);
     res.status(200).json(countries);
   } catch (error) {
     res.status(500).json({ error: error.message });
