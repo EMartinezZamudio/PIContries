@@ -1,14 +1,20 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import Card from "../Card/Card";
 
-const Cards = () => {
-  const cards = useSelector((state) => state.cards);
-
-  useEffect(() => {
-    console.log(cards);
-  }, [cards]);
-
-  return <div>Cards</div>;
+const Cards = ({ data }) => {
+  return (
+    <section>
+      {data.map((pais) => {
+        return (
+          <Card
+            key={pais.id}
+            name={pais.name}
+            continente={pais.continente}
+            imagen={pais.imagen}
+          />
+        );
+      })}
+    </section>
+  );
 };
 
 export default Cards;
