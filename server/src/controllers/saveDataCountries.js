@@ -5,8 +5,16 @@ const saveDataCountries = async () => {
   const { data } = await axios("http://localhost:5000/countries");
 
   const promises = data.map((country) => {
-    const { name, region, capital, subregion, area, population, flags, cca3 } =
-      country;
+    const {
+      name,
+      continents,
+      capital,
+      subregion,
+      area,
+      population,
+      flags,
+      cca3,
+    } = country;
 
     let capitalNombre;
     if (Array.isArray(capital)) {
@@ -16,7 +24,7 @@ const saveDataCountries = async () => {
     const newCountry = {
       id: cca3,
       name: name.common,
-      continente: region,
+      continente: continents[0],
       capital: capitalNombre,
       subregion,
       area,
@@ -29,6 +37,7 @@ const saveDataCountries = async () => {
 
   return Promise.all(promises).then(() => {
     return "informacion guardada en la base de datos";
+    continents;
   });
 };
 
