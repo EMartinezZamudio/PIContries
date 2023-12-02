@@ -3,14 +3,14 @@ const { Op } = require("sequelize");
 
 const getCountries = async (name, pag) => {
   if (name) {
-    const countries = await Country.findAll({
+    const countrie = await Country.findOne({
       where: {
         name: {
-          [Op.iLike]: `%${name}%`,
+          [Op.iLike]: `${name}%`,
         },
       },
     });
-    return countries;
+    return countrie;
   }
 
   if (pag) {
