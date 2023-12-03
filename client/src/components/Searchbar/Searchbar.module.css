@@ -1,22 +1,38 @@
+.wrapperSerchbar {
+  width: 400px;
+  height: 38px;
+  display: flex;
+  justify-content: right;
+  position: relative;
+}
+
 .borderInput {
   font-size: 22px;
   width: 350px;
   height: 38px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border: 2px solid #3498db;
   border-radius: 20px;
-  padding-left: 10px;
+  padding-left: 11px;
+  transition: 250ms;
+}
+
+.borderInput:hover {
+  width: 372px;
 }
 
 .inputSearchbar {
   color: #3498db;
-  background-color: transparent;
+  background-color: #020d14;
   width: 267px;
   height: 34px;
   border: none;
   outline: none;
   margin-left: 13px;
+  position: absolute;
+  left: 37px;
 }
 
 .btnSearchbar {
