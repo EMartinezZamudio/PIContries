@@ -23,7 +23,7 @@ const Searchbar = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     try {
-      dispatch(addCard(dataInput));
+      if (dataInput) dispatch(addCard(dataInput));
     } catch (error) {
       alert(error.message);
     }
