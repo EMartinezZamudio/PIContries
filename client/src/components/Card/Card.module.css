@@ -1,4 +1,58 @@
 .wrapperCard {
-  background-color: red;
+  width: 250px;
+  height: 170px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
   position: relative;
+}
+
+.wrapperCard:hover .continenteCard {
+  top: 0;
+}
+
+.wrapperCard:hover .borderCard {
+  border-radius: 10px 0 10px 10px;
+}
+
+.imgCard {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.continenteCard {
+  background-color: blue;
+  position: absolute;
+  top: 23px;
+  right: 0;
+  transition: 250ms;
+  padding: 5px;
+  border-radius: 10px 10px 0 0;
+}
+
+.nombreCard {
+  background: linear-gradient(to top, transparent, black);
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 240px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  padding-top: 5px;
+  border-radius: 10px 10px 0 0;
+}
+
+.borderCard {
+  background-color: blue;
+  width: 240px;
+  height: 137px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 5px;
+  border-radius: 10px;
 }

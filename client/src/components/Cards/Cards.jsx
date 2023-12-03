@@ -1,8 +1,10 @@
 import Card from "../Card/Card";
 
+import { wrapperCards } from "./Cards.module.css";
+
 const Cards = ({ data }) => {
   return (
-    <section>
+    <section className={wrapperCards}>
       {data.map((pais) => {
         return (
           <Card
