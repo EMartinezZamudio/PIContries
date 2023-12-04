@@ -7,20 +7,23 @@
 }
 
 .borderInput {
-  font-size: 22px;
   width: 350px;
   height: 38px;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
   border: 2px solid #3498db;
   border-radius: 20px;
   padding-left: 11px;
-  transition: 250ms;
+  transition: 100ms;
 }
 
-.borderInput:hover {
-  width: 372px;
+.iconoUno {
+  display: none;
+  font-size: 22px;
+  position: absolute;
+  left: 22px;
+  top: 10px;
 }
 
 .inputSearchbar {
@@ -32,7 +35,16 @@
   outline: none;
   margin-left: 13px;
   position: absolute;
-  left: 37px;
+  left: 40px;
+  top: 3px;
+}
+
+.inputSearchbar:focus ~ .iconoUno {
+  display: block;
+}
+
+.inputSearchbar:focus ~ .borderInput {
+  width: 375px;
 }
 
 .btnSearchbar {

@@ -4,6 +4,7 @@ import {
   inputSearchbar,
   btnSearchbar,
   wrapperSerchbar,
+  iconoUno,
 } from "./Searchbar.module.css";
 
 // hooks
@@ -30,20 +31,22 @@ const Searchbar = () => {
   };
 
   return (
-    <div className={wrapperSerchbar}>
-      <form className={borderInput} onSubmit={handleSubmit}>
+    <form className={wrapperSerchbar} onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Buscar"
+        className={inputSearchbar}
+        onChange={handleInput}
+      />
+      <div className={iconoUno}>
         <ion-icon name="search-sharp"></ion-icon>
-        <input
-          type="text"
-          placeholder="Buscar"
-          className={inputSearchbar}
-          onChange={handleInput}
-        />
+      </div>
+      <div className={borderInput}>
         <button className={btnSearchbar}>
           <ion-icon name="search-circle"></ion-icon>
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 
