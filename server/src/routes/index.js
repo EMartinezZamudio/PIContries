@@ -12,6 +12,9 @@ router.get("/countries", async (req, res) => {
   try {
     const { name, pag } = req.query;
     const countries = await getCountries(name, pag);
+    if (!countries) {
+      return res.status(404).json({ error: "Pais no encontrado" });
+    }
     res.status(200).json(countries);
   } catch (error) {
     res.status(500).json({ error: error.message });
