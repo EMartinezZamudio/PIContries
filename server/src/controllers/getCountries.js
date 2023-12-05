@@ -3,13 +3,19 @@ const { Op } = require("sequelize");
 
 const getCountries = async (name, pag) => {
   if (name) {
-    const countrie = await Country.findOne({
-      where: {
-        name: {
-          [Op.iLike]: `${name}%`,
+    let countrie = null;
+    let aux = name.length;
+
+    while (!countrie && aux) {
+      countrie = await Country.findOne({
+        where: {
+          name: {
+            [Op.iLike]: `${name.substring(0, aux)}%`,
+          },
         },
-      },
-    });
+      });
+      aux--;
+    }
     return countrie;
   }
 
