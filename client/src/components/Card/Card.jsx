@@ -3,19 +3,27 @@ import {
   imgCard,
   nombreCard,
   borderCard,
-  continenteCard,
+  btnClose,
 } from "./Card.module.css";
 
+import useColor from "./useColor";
+
 const Card = ({ id, name, continente, imagen, onClose }) => {
+  const { colorBorde, continentCard } = useColor(continente);
+
   return (
     <section className={wrapperCard}>
-      <div className={continenteCard}>
+      <div className={continentCard}>
         <span>{continente}</span>
-        <button onClick={() => onClose(id)}>X</button>
+        <button onClick={() => onClose(id)} className={btnClose}>
+          X
+        </button>
       </div>
-      <div className={borderCard}>
-        <span className={nombreCard}>{name}</span>
-        <img src={imagen} className={imgCard} alt="imagen del pais" />
+      <div className={colorBorde}>
+        <div className={borderCard}>
+          <span className={nombreCard}>{name}</span>
+          <img src={imagen} className={imgCard} alt="imagen del pais" />
+        </div>
       </div>
     </section>
   );

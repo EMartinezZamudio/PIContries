@@ -9,11 +9,45 @@
   position: relative;
 }
 
-.wrapperCard:hover .continenteCard {
+.wrapperCard:hover .continenteCardAmerica {
   top: 0;
 }
+.wrapperCard:hover .borderCardAmerica {
+  border-radius: 10px 0 10px 10px;
+}
 
-.wrapperCard:hover .borderCard {
+.wrapperCard:hover .continenteCardAsia {
+  top: 0;
+}
+.wrapperCard:hover .borderCardAsia {
+  border-radius: 10px 0 10px 10px;
+}
+
+.wrapperCard:hover .continenteCardAfrica {
+  top: 0;
+}
+.wrapperCard:hover .borderCardAfrica {
+  border-radius: 10px 0 10px 10px;
+}
+
+.wrapperCard:hover .continenteCardEurope {
+  top: 0;
+}
+.wrapperCard:hover .borderCardEurope {
+  border-radius: 10px 0 10px 10px;
+}
+
+.wrapperCard:hover .continenteCardOceania {
+  top: 0;
+}
+.wrapperCard:hover .borderCardOceania {
+  border-radius: 10px 0 10px 10px;
+}
+
+.wrapperCard:hover .continenteCardAntarctica {
+  top: 0;
+}
+.wrapperCard:hover .borderCardAntarctica {
   border-radius: 10px 0 10px 10px;
 }
 
@@ -24,21 +58,7 @@
   border-radius: 10px;
 }
 
-.continenteCard {
-  background-color: blue;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 33px;
-  right: 0;
-  transition: 250ms;
-  padding: 5px;
-  height: 23px;
-  border-radius: 10px 10px 0 0;
-}
-
-.continenteCard button {
+.btnClose {
   background-color: #ff3f34;
   color: white;
   border: none;
@@ -65,12 +85,120 @@
 }
 
 .borderCard {
-  background-color: blue;
   width: 240px;
   height: 137px;
   display: grid;
   place-items: center;
   position: relative;
   padding: 5px;
+}
+
+.borderCardAmerica {
+  background-color: #ffd32a;
   border-radius: 10px;
+}
+.borderCardAsia {
+  background-color: #009432;
+  border-radius: 10px;
+}
+.borderCardAfrica {
+  background-color: #d63031;
+  border-radius: 10px;
+}
+.borderCardEurope {
+  background-color: #273c75;
+  border-radius: 10px;
+}
+.borderCardOceania {
+  background-color: #0abde3;
+  border-radius: 10px;
+}
+.borderCardAntarctica {
+  background-color: #dfe6e9;
+  border-radius: 10px;
+}
+
+.continenteCardAmerica {
+  background-color: #ffd32a;
+  color: black;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 33px;
+  right: 0;
+  transition: 250ms;
+  padding: 5px;
+  height: 23px;
+  border-radius: 10px 10px 0 0;
+}
+.continenteCardAsia {
+  background-color: #009432;
+  color: black;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 33px;
+  right: 0;
+  transition: 250ms;
+  padding: 5px;
+  height: 23px;
+  border-radius: 10px 10px 0 0;
+}
+.continenteCardAfrica {
+  background-color: #d63031;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 33px;
+  right: 0;
+  transition: 250ms;
+  padding: 5px;
+  height: 23px;
+  border-radius: 10px 10px 0 0;
+}
+.continenteCardEurope {
+  background-color: #273c75;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 33px;
+  right: 0;
+  transition: 250ms;
+  padding: 5px;
+  height: 23px;
+  border-radius: 10px 10px 0 0;
+}
+.continenteCardOceania {
+  background-color: #0abde3;
+  color: black;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 33px;
+  right: 0;
+  transition: 250ms;
+  padding: 5px;
+  height: 23px;
+  border-radius: 10px 10px 0 0;
+}
+.continenteCardAntarctica {
+  background-color: #dfe6e9;
+  color: black;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 33px;
+  right: 0;
+  transition: 250ms;
+  padding: 5px;
+  height: 23px;
+  border-radius: 10px 10px 0 0;
 }
