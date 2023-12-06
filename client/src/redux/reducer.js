@@ -15,6 +15,17 @@ const rootReducer = (state = initialState, { type, payload }) => {
         cards: [...state.cards, payload],
       };
 
+    case "REMOVE_ADD":
+      // eslint-disable-next-line no-case-declarations
+      const newCards = state.cards.filter((card) => {
+        return card.id !== payload;
+      });
+
+      return {
+        ...state,
+        cards: newCards,
+      };
+
     default:
       return {
         ...state,
