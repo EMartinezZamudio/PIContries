@@ -10,7 +10,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case ADD_CARD:
       for (let card of state.cards) {
         if (payload.id === card.id) {
-          return alert("Pais ya agregado");
+          alert("Pais ya agregado");
+          return {
+            ...state,
+            cards: [...state.cards],
+          };
         }
       }
       return {
