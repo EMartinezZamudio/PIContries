@@ -10,7 +10,7 @@ const getCountries = async (name, pag) => {
       countrie = await Country.findOne({
         where: {
           name: {
-            [Op.iLike]: `${name.substring(0, aux)}%`,
+            [Op.iLike]: `%${name.substring(0, aux)}%`,
           },
         },
       });
