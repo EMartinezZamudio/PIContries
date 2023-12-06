@@ -24,6 +24,7 @@ const Searchbar = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (dataInput) dispatch(addCard(dataInput));
+    setDataInput("");
   };
 
   return (
@@ -33,6 +34,7 @@ const Searchbar = () => {
         placeholder="Buscar"
         className={inputSearchbar}
         onChange={handleInput}
+        value={dataInput}
       />
       <div className={iconoUno}>
         <ion-icon name="search-sharp"></ion-icon>
