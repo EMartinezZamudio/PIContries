@@ -1,46 +1,36 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const usePaginadoCards = () => {
+const usePaginadoCards = (value = 1) => {
   const cards = useSelector((state) => state.cards);
-  const [renderCards, setRendercards] = useState([]);
 
-  const [pagina, setPagina] = useState(1);
-  const [inicio, setInicio] = useState(0);
-  const [limit, setLimit] = useState(10);
+  const [pagina, setPagina] = useState(value);
 
   useEffect(() => {
-    if (cards.length < inicio) {
+    if (cards.length < (pagina - 1) * 11) {
       setPagina(pagina - 1);
     }
 
-    if (cards.length > limit) {
+    if (cards.length > 10 * pagina) {
       setPagina(pagina + 1);
     }
-
-    setInicio(() => {
-      return (pagina - 1) * 10;
-    });
-    setLimit(() => {
-      return 10 * pagina;
-    });
-
-    setRendercards(() => {
-      const res = cards.slice(inicio, limit);
-      return res;
-    });
   }, [cards]);
+
+  let inicio = (pagina - 1) * 10;
+  let limit = 10 * pagina;
+  let renderCards = cards.slice(inicio, limit);
 
   const current = (numPagina) => {
     if (numPagina > 0 && numPagina < pagina) {
-      setInicio((numPagina - 1) * 10);
-      setLimit(10 * numPagina);
-
-      setRendercards((cards) => cards.slice(inicio, limit));
+      inicio = (numPagina - 1) * 10;
+      limit = 10 * numPagina;
+      renderCards = cards.slice(inicio, limit);
+      console.log(renderCards);
     }
   };
 
   return {
+    pagina,
     current,
     renderCards,
   };

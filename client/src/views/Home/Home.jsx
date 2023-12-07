@@ -11,18 +11,22 @@ import { removeCard } from "../../redux/actions";
 import Cards from "../../components/Cards/Cards";
 
 const Home = () => {
-  const { current, renderCards } = usePaginadoCards();
+  const { pagina, current, renderCards } = usePaginadoCards();
   const dispatch = useDispatch();
 
   const onClose = (id) => {
     dispatch(removeCard(id));
   };
 
+  const handleClickAtras = () => {
+    current(pagina - 1);
+  };
+
   return (
     <>
       <Cards data={renderCards} onClose={onClose} />
       <div>
-        <button>regreso</button>
+        <button onClick={handleClickAtras}>atras</button>
         <button>siguiente</button>
       </div>
     </>
