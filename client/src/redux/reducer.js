@@ -3,6 +3,9 @@ import { ADD_CARD, REMOVE_CARD } from "./actionTypes";
 
 const initialState = {
   cards: [],
+  currentCards: [],
+  page: 1,
+  currentPage: 1,
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -17,21 +20,56 @@ const rootReducer = (state = initialState, { type, payload }) => {
           };
         }
       }
-      return {
-        ...state,
-        cards: [...state.cards, payload],
-      };
+      // eslint-disable-next-line no-case-declarations
+      const lengthAdd = state.cards.length + 1;
+      if (lengthAdd > 2 * state.page) {
+        const page = state.page + 1;
+        const res = state.cards.slice((page - 1) * 2, 2 * page);
+        return {
+          ...state,
+          cards: [...state.cards, payload],
+          currentCards: [...res, payload],
+          page: state.page + 1,
+          currentPage: state.page + 1,
+        };
+      } else {
+        const page = state.page;
+        const res = state.cards.slice((page - 1) * 2, 2 * page);
+        return {
+          ...state,
+          cards: [...state.cards, payload],
+          currentCards: [...res, payload],
+        };
+      }
 
     case REMOVE_CARD:
       // eslint-disable-next-line no-case-declarations
       const newCards = state.cards.filter((card) => {
         return card.id !== payload;
       });
-
-      return {
-        ...state,
-        cards: newCards,
-      };
+      // eslint-disable-next-line no-case-declarations
+      const lengthRem = state.cards.length - 1;
+      // eslint-disable-next-line no-case-declarations
+      const inicio = (state.page - 1) * 2;
+      if (lengthRem <= inicio && length < inicio) {
+        const page = state.page - 1;
+        const res = newCards.slice((page - 1) * 2, 2 * page);
+        return {
+          ...state,
+          cards: newCards,
+          currentCards: res,
+          page: state.page - 1,
+          currentPage: state.page - 1,
+        };
+      } else {
+        const page = state.currentPage;
+        const res = newCards.slice((page - 1) * 2, 2 * page);
+        return {
+          ...state,
+          cards: newCards,
+          currentCards: res,
+        };
+      }
 
     default:
       return {

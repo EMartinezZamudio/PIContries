@@ -1,8 +1,5 @@
 // hooks
-import { useDispatch } from "react-redux";
-
-// custom hooks
-import usePaginadoCards from "../../hooks/usePaginadoCards";
+import { useDispatch, useSelector } from "react-redux";
 
 // actions
 import { removeCard } from "../../redux/actions";
@@ -11,16 +8,17 @@ import { removeCard } from "../../redux/actions";
 import Cards from "../../components/Cards/Cards";
 
 const Home = () => {
-  const { pagina, current, renderCards } = usePaginadoCards();
+  const renderCards = useSelector((state) => state.currentCards);
+  const page = useSelector((state) => state.currentPage);
   const dispatch = useDispatch();
 
   const onClose = (id) => {
     dispatch(removeCard(id));
   };
 
-  const handleClickAtras = () => {
-    current(pagina - 1);
-  };
+  const handleClickAtras = () => {};
+
+  console.log(page);
 
   return (
     <>
