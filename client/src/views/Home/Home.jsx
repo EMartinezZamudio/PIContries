@@ -1,5 +1,8 @@
 // hooks
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+
+// custom hooks
+import usePaginadoCards from "../../hooks/usePaginadoCards";
 
 // actions
 import { removeCard } from "../../redux/actions";
@@ -8,7 +11,7 @@ import { removeCard } from "../../redux/actions";
 import Cards from "../../components/Cards/Cards";
 
 const Home = () => {
-  const cards = useSelector((state) => state.cards);
+  const { current, renderCards } = usePaginadoCards();
   const dispatch = useDispatch();
 
   const onClose = (id) => {
@@ -17,7 +20,11 @@ const Home = () => {
 
   return (
     <>
-      <Cards data={cards} onClose={onClose} />
+      <Cards data={renderCards} onClose={onClose} />
+      <div>
+        <button>regreso</button>
+        <button>siguiente</button>
+      </div>
     </>
   );
 };
