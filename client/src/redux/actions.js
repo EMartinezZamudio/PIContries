@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // actionTypes
-import { ADD_CARD, REMOVE_CARD } from "./actionTypes";
+import { ADD_CARD, REMOVE_CARD, NEXT_PAGE, PREVIOUS_PAGE } from "./actionTypes";
 
 // helpers
 import URLS from "../helpers/Urls";
@@ -26,5 +26,17 @@ export const removeCard = (id) => {
   return {
     type: REMOVE_CARD,
     payload: id,
+  };
+};
+
+export const nextPage = () => {
+  return {
+    type: NEXT_PAGE,
+  };
+};
+
+export const previousPage = () => {
+  return {
+    type: PREVIOUS_PAGE,
   };
 };

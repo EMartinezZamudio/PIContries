@@ -2,7 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 // actions
-import { removeCard } from "../../redux/actions";
+import { removeCard, previousPage, nextPage } from "../../redux/actions";
 
 // componentes
 import Cards from "../../components/Cards/Cards";
@@ -16,16 +16,21 @@ const Home = () => {
     dispatch(removeCard(id));
   };
 
-  const handleClickAtras = () => {};
+  const handleClickNext = () => {
+    dispatch(nextPage());
+  };
 
-  console.log(page);
+  const handleClickPrevious = () => {
+    dispatch(previousPage());
+  };
 
   return (
     <>
+      <h2>Paguina: {page}</h2>
       <Cards data={renderCards} onClose={onClose} />
       <div>
-        <button onClick={handleClickAtras}>atras</button>
-        <button>siguiente</button>
+        <button onClick={handleClickPrevious}>atras</button>
+        <button onClick={handleClickNext}>siguiente</button>
       </div>
     </>
   );

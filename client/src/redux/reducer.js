@@ -1,5 +1,5 @@
 // actionTypes
-import { ADD_CARD, REMOVE_CARD } from "./actionTypes";
+import { ADD_CARD, REMOVE_CARD, NEXT_PAGE, PREVIOUS_PAGE } from "./actionTypes";
 
 const initialState = {
   cards: [],
@@ -39,6 +39,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
           ...state,
           cards: [...state.cards, payload],
           currentCards: [...res, payload],
+          currentPage: state.page,
         };
       }
 
@@ -70,6 +71,36 @@ const rootReducer = (state = initialState, { type, payload }) => {
           currentCards: res,
         };
       }
+
+    case NEXT_PAGE:
+      if (state.currentPage < state.page) {
+        const page = state.currentPage + 1;
+        const res = state.cards.slice((page - 1) * 2, 2 * page);
+        return {
+          ...state,
+          currentCards: res,
+          currentPage: state.currentPage + 1,
+        };
+      }
+
+      return {
+        ...state,
+      };
+
+    case PREVIOUS_PAGE:
+      if (state.currentPage <= state.page && state.currentPage > 1) {
+        const page = state.currentPage - 1;
+        const res = state.cards.slice((page - 1) * 2, 2 * page);
+        return {
+          ...state,
+          currentCards: res,
+          currentPage: state.currentPage - 1,
+        };
+      }
+
+      return {
+        ...state,
+      };
 
     default:
       return {
