@@ -34,9 +34,7 @@ const Home = () => {
   return (
     <>
       <h2>Paguina: {page}</h2>
-      <button onClick={handleClickOrder} id="alfabetico">
-        A-Z
-      </button>
+      <button onClick={handleClickOrder}>A-Z</button>
       <button onClick={handleClickOrder}>Poblacion</button>
       <Cards data={renderCards} onClose={onClose} />
       <div>

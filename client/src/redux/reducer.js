@@ -120,6 +120,18 @@ const rootReducer = (state = initialState, { type, payload }) => {
           if (payload === "A-Z true") {
             return cardA.name.localeCompare(cardB.name);
           }
+
+          if (payload === "A-Z false") {
+            return cardB.name.localeCompare(cardA.name);
+          }
+
+          if (payload === "poblacion true") {
+            return cardA.poblacion - cardB.poblacion;
+          }
+
+          if (payload === "poblacion false") {
+            return cardB.poblacion - cardA.poblacion;
+          }
         });
 
         const page = 1;
@@ -132,6 +144,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         };
       }
 
+      return {
+        ...state,
+      };
+
+    case FILTER_CARDS:
       return {
         ...state,
       };

@@ -19,6 +19,16 @@ const useOrderFilter = () => {
         setBtn({ ...btn, az: true });
       }
     }
+
+    if (action === "Poblacion") {
+      if (btn.poblacion) {
+        dispatch(orderCards("poblacion true"));
+        setBtn({ ...btn, poblacion: false });
+      } else {
+        dispatch(orderCards("poblacion false"));
+        setBtn({ ...btn, poblacion: true });
+      }
+    }
   };
   return {
     handleOrder,
