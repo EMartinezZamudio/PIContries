@@ -1,7 +1,14 @@
 import axios from "axios";
 
 // actionTypes
-import { ADD_CARD, REMOVE_CARD, NEXT_PAGE, PREVIOUS_PAGE } from "./actionTypes";
+import {
+  ADD_CARD,
+  REMOVE_CARD,
+  NEXT_PAGE,
+  PREVIOUS_PAGE,
+  ORDER_CARDS,
+  FILTER_CARDS,
+} from "./actionTypes";
 
 // helpers
 import URLS from "../helpers/Urls";
@@ -38,5 +45,19 @@ export const nextPage = () => {
 export const previousPage = () => {
   return {
     type: PREVIOUS_PAGE,
+  };
+};
+
+export const orderCards = (value) => {
+  return {
+    type: ORDER_CARDS,
+    payload: value,
+  };
+};
+
+export const filterCards = (value) => {
+  return {
+    type: FILTER_CARDS,
+    payload: value,
   };
 };
