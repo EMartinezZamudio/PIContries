@@ -1,34 +1,27 @@
 // hooks
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 // actions
-import { removeCard, previousPage, nextPage } from "../../redux/actions";
+import { removeCard } from "../../redux/actions";
 
 // componentes
 import Cards from "../../components/Cards/Cards";
 import useOrderFilter from "../../hooks/useOrderFilter";
+import usePaginated from "../../hooks/usePaginated";
 
 const Home = () => {
-  const renderCards = useSelector((state) => state.currentCards);
-  const page = useSelector((state) => state.currentPage);
   const dispatch = useDispatch();
+  const { currentPage, renderCards } = usePaginated();
+  const { handleClickNext, handleClickPrevious } = usePaginated();
   const { handleOrder, handleFilter } = useOrderFilter();
 
   const onClose = (id) => {
     dispatch(removeCard(id));
   };
 
-  const handleClickNext = () => {
-    dispatch(nextPage());
-  };
-
-  const handleClickPrevious = () => {
-    dispatch(previousPage());
-  };
-
   return (
     <>
-      <h2>Paguina: {page}</h2>
+      <h2>Paguina: {currentPage}</h2>
       <span>Orden:</span>
       <button onClick={handleOrder}>A-Z</button>
       <button onClick={handleOrder}>Poblacion</button>
