@@ -5,6 +5,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Landing from "./views/Landing/Landing";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./views/Home/Home";
+import Detail from "./views/Detail/Detail";
 
 // estilos
 import { app } from "./App.module.css";
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>
   );

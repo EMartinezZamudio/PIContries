@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import useColor from "./useColor";
+
 import {
   wrapperCard,
   imgCard,
@@ -5,8 +8,6 @@ import {
   borderCard,
   btnClose,
 } from "./Card.module.css";
-
-import useColor from "./useColor";
 
 const Card = ({ id, name, continente, imagen, onClose }) => {
   const { colorBorde, continentCard } = useColor(continente);
@@ -19,12 +20,12 @@ const Card = ({ id, name, continente, imagen, onClose }) => {
           X
         </button>
       </div>
-      <div className={colorBorde}>
+      <Link to={`/detail/${id}`} className={colorBorde}>
         <div className={borderCard}>
           <span className={nombreCard}>{name}</span>
           <img src={imagen} className={imgCard} alt="imagen del pais" />
         </div>
-      </div>
+      </Link>
     </section>
   );
 };
