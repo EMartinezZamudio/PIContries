@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { orderCards } from "../redux/actions";
+import { orderCards, filterCards } from "../redux/actions";
 
 const useOrderFilter = () => {
   const dispatch = useDispatch();
@@ -30,8 +30,13 @@ const useOrderFilter = () => {
       }
     }
   };
+
+  const handleFilter = (action) => {
+    dispatch(filterCards(action));
+  };
   return {
     handleOrder,
+    handleFilter,
   };
 };
 
