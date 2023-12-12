@@ -26,25 +26,15 @@ const Home = () => {
     dispatch(previousPage());
   };
 
-  const handleClickOrder = (event) => {
-    const action = event.target.innerText;
-    handleOrder(action);
-  };
-
-  const handleSelects = (event) => {
-    const action = event.target.value;
-    handleFilter(action);
-  };
-
   return (
     <>
       <h2>Paguina: {page}</h2>
       <span>Orden:</span>
-      <button onClick={handleClickOrder}>A-Z</button>
-      <button onClick={handleClickOrder}>Poblacion</button>
+      <button onClick={handleOrder}>A-Z</button>
+      <button onClick={handleOrder}>Poblacion</button>
       <span>Filtros:</span>
       <span>Continente</span>
-      <select name="continente" onChange={handleSelects}>
+      <select name="continente" onChange={handleFilter}>
         <option value="Todos">Todos</option>
         <option value="America">America</option>
         <option value="Asia">Asia</option>

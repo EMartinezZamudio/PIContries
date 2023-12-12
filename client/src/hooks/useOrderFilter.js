@@ -9,31 +9,34 @@ const useOrderFilter = () => {
     poblacion: true,
   });
 
-  const handleOrder = (action) => {
+  const handleOrder = (event) => {
+    const action = event.target.innerText;
     if (action === "A-Z") {
       if (btn.az) {
         dispatch(orderCards("A-Z true"));
-        setBtn({ ...btn, az: false });
+        setBtn({ poblacion: true, az: false });
       } else {
         dispatch(orderCards("A-Z false"));
-        setBtn({ ...btn, az: true });
+        setBtn({ poblacion: true, az: true });
       }
     }
 
     if (action === "Poblacion") {
       if (btn.poblacion) {
         dispatch(orderCards("poblacion true"));
-        setBtn({ ...btn, poblacion: false });
+        setBtn({ az: true, poblacion: false });
       } else {
         dispatch(orderCards("poblacion false"));
-        setBtn({ ...btn, poblacion: true });
+        setBtn({ az: true, poblacion: true });
       }
     }
   };
 
-  const handleFilter = (action) => {
+  const handleFilter = (event) => {
+    const action = event.target.value;
     dispatch(filterCards(action));
   };
+
   return {
     handleOrder,
     handleFilter,
