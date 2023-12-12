@@ -1,5 +1,6 @@
 // modulos
 import { Routes, Route, useLocation } from "react-router-dom";
+import PATHROUTES from "./helpers/PathRoutes.helpers";
 
 // componentes
 import Landing from "./views/Landing/Landing";
@@ -11,7 +12,6 @@ import Detail from "./views/Detail/Detail";
 import { app } from "./App.module.css";
 
 function App() {
-  // hook de react-ruter
   const { pathname } = useLocation();
 
   const body = document.querySelector("body");
@@ -23,8 +23,8 @@ function App() {
       {pathname !== "/" && <Navbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path={PATHROUTES.HOME} element={<Home />} />
+        <Route path={PATHROUTES.DETAIL} element={<Detail />} />
       </Routes>
     </div>
   );
