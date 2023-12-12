@@ -1,13 +1,13 @@
 // hooks
 import { useDispatch } from "react-redux";
+import useOrderFilter from "../../hooks/useOrderFilter";
+import usePaginated from "../../hooks/usePaginated";
 
 // actions
 import { removeCard } from "../../redux/actions";
 
 // componentes
 import Cards from "../../components/Cards/Cards";
-import useOrderFilter from "../../hooks/useOrderFilter";
-import usePaginated from "../../hooks/usePaginated";
 
 const Home = () => {
   const dispatch = useDispatch();
