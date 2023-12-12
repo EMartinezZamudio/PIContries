@@ -11,7 +11,7 @@ import {
 } from "./actionTypes";
 
 // helpers
-import URLS from "../helpers/Urls";
+import URLS from "../helpers/Urls.helpers";
 
 export const addCard = (name) => {
   return async (dispatch) => {
