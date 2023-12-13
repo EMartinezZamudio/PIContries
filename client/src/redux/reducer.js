@@ -1,3 +1,6 @@
+// helpers
+import { cardsForPage, numberPages } from "../helpers/Paginated.helpers";
+
 // actionTypes
 import {
   ADD_CARD,
@@ -30,9 +33,8 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
       if (payload) {
         const length = state.allCards.length + 1;
-        const page = Math.ceil(length / 2);
-        const numPage = page;
-        const res = state.allCards.slice((numPage - 1) * 2, 2 * numPage);
+        const page = numberPages(length);
+        const res = cardsForPage(page, state.allCards);
         return {
           ...state,
           allCards: [...state.allCards, payload],
@@ -53,15 +55,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
           return card.id !== payload;
         });
 
-        let page = Math.ceil(newCards.length / 2);
-        const numPage = state.currentPage;
-        const res = newCards.slice((numPage - 1) * 2, 2 * numPage);
+        const page = numberPages(newCards.length);
+        const res = cardsForPage(state.currentPage, newCards);
 
-        if (page === 0) page = 1;
-
-        if (state.page === numPage) {
-          const numPage = page;
-          const res = newCards.slice((numPage - 1) * 2, 2 * numPage);
+        if (state.page === state.currentPage) {
+          const res = cardsForPage(page, newCards);
           return {
             ...state,
             allCards: newCards,
@@ -86,11 +84,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case NEXT_PAGE:
       if (state.currentPage < state.page) {
         const page = state.currentPage + 1;
-        const res = state.cards.slice((page - 1) * 2, 2 * page);
+        const res = cardsForPage(page, state.cards);
         return {
           ...state,
           currentCards: res,
-          currentPage: state.currentPage + 1,
+          currentPage: page,
         };
       }
 
@@ -101,11 +99,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case PREVIOUS_PAGE:
       if (state.currentPage <= state.page && state.currentPage > 1) {
         const page = state.currentPage - 1;
-        const res = state.cards.slice((page - 1) * 2, 2 * page);
+        const res = cardsForPage(page, state.cards);
         return {
           ...state,
           currentCards: res,
-          currentPage: state.currentPage - 1,
+          currentPage: page,
         };
       }
 
@@ -134,12 +132,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
         });
 
         const page = 1;
-        const res = state.cards.slice((page - 1) * 2, 2 * page);
+        const res = cardsForPage(page, state.cards);
         return {
           ...state,
           cards: cardsOrdenadas,
           currentCards: res,
-          currentPage: 1,
+          currentPage: page,
         };
       }
 
@@ -162,9 +160,8 @@ const rootReducer = (state = initialState, { type, payload }) => {
           if (payload === "America") return NA || SA;
         });
 
-        const page = Math.ceil(cardsFiltradas.length / 2);
-        const numPage = 1;
-        const res = cardsFiltradas.slice((numPage - 1) * 2, 2 * numPage);
+        const page = numberPages(cardsFiltradas.length);
+        const res = cardsForPage(1, cardsFiltradas);
         return {
           ...state,
           cards: cardsFiltradas,
