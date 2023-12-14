@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const { Activity, Country } = require("../db");
 
 const createActivity = async (req, res) => {
@@ -12,12 +13,19 @@ const createActivity = async (req, res) => {
 
     const promises = paises.map((pais) => {
       return Country.findOne({
-        where: { name: pais },
+        where: {
+          name: {
+            [Op.iLike]: pais,
+          },
+        },
       });
     });
 
     await Promise.all(promises).then((response) => {
       response.forEach((pais) => {
+        if (!pais) {
+          return res.status(404).json({ error: "Paises no encontrados" });
+        }
         countries.push(pais.id);
       });
     });
