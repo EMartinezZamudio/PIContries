@@ -3,34 +3,48 @@ const { Activity, Country } = require("../db");
 
 const createActivity = async (req, res) => {
   try {
-    const { nombre, dificultad, temporada, duracion, paises } = req.body;
+    const { tipo, nombre, dificultad, temporada, duracion, paises } = req.body;
 
-    if (!nombre || !dificultad || !temporada || !paises[0]) {
+    if (!tipo || !nombre || !dificultad || !temporada || !paises[0]) {
       return res.status(404).json({ error: "faltan datos obligatorios" });
     }
 
     const countries = [];
 
-    const promises = paises.map((pais) => {
-      return Country.findOne({
+    // const promises = paises.map((pais) => {
+    //   return Country.findOne({
+    //     where: {
+    //       name: {
+    //         [Op.iLike]: pais,
+    //       },
+    //     },
+    //   });
+    // });
+
+    // await Promise.all(promises).then((response) => {
+    //   response.forEach((pais) => {
+    //     if (!pais) {
+    //       return res.status(404).json({ error: "Paises no encontrados" });
+    //     }
+    //     countries.push(pais.id);
+    //   });
+    // });
+
+    for (let pais of paises) {
+      const result = await Country.findOne({
         where: {
           name: {
             [Op.iLike]: pais,
           },
         },
       });
-    });
+      if (!result) {
+        return res.status(404).json({ error: "Paises no encontrados" });
+      }
+      countries.push(result);
+    }
 
-    await Promise.all(promises).then((response) => {
-      response.forEach((pais) => {
-        if (!pais) {
-          return res.status(404).json({ error: "Paises no encontrados" });
-        }
-        countries.push(pais.id);
-      });
-    });
-
-    const newActivity = { dificultad, temporada, duracion };
+    const newActivity = { tipo, dificultad, temporada, duracion };
     const [activity, created] = await Activity.findOrCreate({
       where: { nombre },
       defaults: newActivity,
