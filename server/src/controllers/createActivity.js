@@ -11,30 +11,11 @@ const createActivity = async (req, res) => {
 
     const countries = [];
 
-    // const promises = paises.map((pais) => {
-    //   return Country.findOne({
-    //     where: {
-    //       name: {
-    //         [Op.iLike]: pais,
-    //       },
-    //     },
-    //   });
-    // });
-
-    // await Promise.all(promises).then((response) => {
-    //   response.forEach((pais) => {
-    //     if (!pais) {
-    //       return res.status(404).json({ error: "Paises no encontrados" });
-    //     }
-    //     countries.push(pais.id);
-    //   });
-    // });
-
     for (let pais of paises) {
       const result = await Country.findOne({
         where: {
           name: {
-            [Op.iLike]: pais,
+            [Op.iLike]: `%${pais}%`,
           },
         },
       });

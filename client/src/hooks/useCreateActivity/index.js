@@ -1,6 +1,6 @@
 import { useState } from "react";
-// import axios from "axios";
-// import URLS from "../../helpers/Urls.helpers";
+import axios from "axios";
+import URLS from "../../helpers/Urls.helpers";
 import activityTypes from "./activityTypes";
 
 const useCreateActivity = () => {
@@ -14,17 +14,18 @@ const useCreateActivity = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // try {
-    //   const { tipo, nombre, dificultad, temporada, paises } = activityData;
-    //   if (!tipo || !nombre || !dificultad || !temporada || !paises[0]) {
-    //     return alert("faltan datos");
-    //   }
-    //   const response = await axios.post(URLS.ACTIVITIES, activityData);
-    //   console.log(response);
-    // } catch (error) {
-    //   alert(error.message);
-    // }
-    console.log(activityData);
+    try {
+      const { tipo, nombre, dificultad, temporada, paises } = activityData;
+      if (!tipo || !nombre || !dificultad || !temporada || !paises[0]) {
+        return alert("faltan datos");
+      }
+      const response = await axios.post(URLS.ACTIVITIES, activityData);
+      if (response.status === 201) {
+        return alert("Actividad creada exitosamente");
+      }
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   const handleInput = (event) => {
@@ -32,8 +33,8 @@ const useCreateActivity = () => {
     const value = event.target.value;
 
     if (property === "paises") {
-      const arrPaises = value.split(",");
-      setActivityData({
+      const arrPaises = value.split(",").map((pais) => pais.trim());
+      return setActivityData({
         ...activityData,
         paises: arrPaises,
       });
@@ -51,7 +52,7 @@ const useCreateActivity = () => {
 
     if (property === "tipo") {
       const tipo = activityTypes(value);
-      setActivityData({
+      return setActivityData({
         ...activityData,
         tipo,
       });
