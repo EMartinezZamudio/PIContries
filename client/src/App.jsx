@@ -7,6 +7,7 @@ import Landing from "./views/Landing/Landing";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./views/Home/Home";
 import Detail from "./views/Detail/Detail";
+import Form from "./components/Form/Form";
 
 // estilos
 import { app } from "./App.module.css";
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path={PATHROUTES.HOME} element={<Home />} />
         <Route path={PATHROUTES.DETAIL} element={<Detail />} />
+        <Route path={PATHROUTES.FORM} element={<Form />} />
       </Routes>
     </div>
   );
