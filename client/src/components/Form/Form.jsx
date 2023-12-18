@@ -2,12 +2,13 @@ import useCreateActivity from "../../hooks/useCreateActivity";
 import { wrapperForm } from "./Form.module.css";
 
 const Form = () => {
-  const { handleSubmit, handleChange, handleInput } = useCreateActivity();
+  const { handleSubmit, handleChange, errors } = useCreateActivity();
   return (
     <form className={wrapperForm} onSubmit={handleSubmit}>
       <h2>Form</h2>
 
-      <span>Tipo de actividad:</span>
+      <span>Tipo de actividad: </span>
+      <span>{errors.tipo && errors.tipo}</span>
       <select name="tipo" onChange={handleChange}>
         <option value="">Elije una opcion</option>
         <option value="op 1">Visitas a Monumentos y Sitios Históricos</option>
@@ -22,15 +23,17 @@ const Form = () => {
         <option value="op 10">Relajación y Bienestar</option>
       </select>
 
-      <label>Nombre</label>
+      <label>Nombre: </label>
+      <span>{errors.nombre && errors.nombre}</span>
       <input
         name="nombre"
         type="text"
         placeholder="Escribe aqui"
-        onChange={handleInput}
+        onChange={handleChange}
       />
 
-      <span>Dificultad:</span>
+      <span>Dificultad: </span>
+      <span>{errors.dificultad && errors.dificultad}</span>
       <div>
         <label>
           <input
@@ -79,7 +82,8 @@ const Form = () => {
         </label>
       </div>
 
-      <span>Temporada</span>
+      <span>Temporada: </span>
+      <span>{errors.temporada && errors.temporada}</span>
       <select name="temporada" onChange={handleChange}>
         <option value="">Elije una opcion:</option>
         <option value="Verano">Verano</option>
@@ -88,11 +92,13 @@ const Form = () => {
         <option value="Primavera">Primavera</option>
       </select>
 
-      <label>Duracion</label>
-      <input name="duracion" type="text" onChange={handleInput} />
+      <label>Duracion: </label>
+      <span>{errors.duracion && errors.duracion}</span>
+      <input name="duracion" type="text" onChange={handleChange} />
 
-      <label>Paises Relacionados</label>
-      <input name="paises" type="text" onChange={handleInput} />
+      <label>Paises Relacionados: </label>
+      <span>{errors.paises && errors.paises}</span>
+      <input name="paises" type="text" onChange={handleChange} />
 
       <button>Crear</button>
     </form>
