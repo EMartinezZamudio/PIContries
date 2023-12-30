@@ -1,5 +1,5 @@
 export const PAGINATED = {
-  NUM_CARDS: 4,
+  NUM_CARDS: 10,
 };
 
 export const cardsForPage = (page, arrayCards) => {
