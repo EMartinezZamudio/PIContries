@@ -1,5 +1,7 @@
 import useDetail from "../../hooks/useDetail";
-import { wrapperDetail } from "./Detail.module.css";
+
+// estlos
+import { wrapperDetail, divName, divData } from "./Detail.module.css";
 
 const Detail = () => {
   const { id, name, imagen, continente, capital, subregion, area, poblacion } =
@@ -7,14 +9,30 @@ const Detail = () => {
 
   return (
     <section className={wrapperDetail}>
-      <span>{id}</span>
-      <span>{name}</span>
-      <span>{continente}</span>
-      <span>{capital}</span>
-      <span>{subregion}</span>
-      <span>{area}</span>
-      <span>{poblacion}</span>
-      <img src={imagen} alt="bandera" />
+      <div className={divName}>
+        <h1>{name}</h1>
+        <p>
+          ID: <span>{id}</span>
+        </p>
+        <img src={imagen} alt="bandera" />
+      </div>
+      <div className={divData}>
+        <p>
+          Continente: <span>{continente}</span>
+        </p>
+        <p>
+          Capital: <span>{capital}</span>
+        </p>
+        <p>
+          Subregion: <span>{subregion}</span>
+        </p>
+        <p>
+          Area: <span>{area}</span>
+        </p>
+        <p>
+          Poblacion: <span>{poblacion}</span>
+        </p>
+      </div>
     </section>
   );
 };
