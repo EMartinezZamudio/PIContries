@@ -20,11 +20,13 @@ import {
   divFilter,
   selectFilter,
   btnPaginated,
+  divPagina,
+  colorNumPagina,
 } from "./Home.module.css";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { currentPage, renderCards } = usePaginated();
+  const { currentPage, renderCards, numPages } = usePaginated();
   const { handleClickNext, handleClickPrevious } = usePaginated();
   const { handleOrder, handleFilter } = useOrderFilter();
 
@@ -35,7 +37,10 @@ const Home = () => {
   return (
     <div className={wrapperHome}>
       <div className={divHeader}>
-        <h2>Paguina: {currentPage}</h2>
+        <div className={divPagina}>
+          <span>Paguina: </span>
+          <span className={colorNumPagina}>{currentPage}</span>
+        </div>
         <div className={divOrderFilter}>
           <div className={divOrder}>
             <span>Orden</span>
@@ -72,12 +77,20 @@ const Home = () => {
       <div className={divCars}>
         <Cards data={renderCards} onClose={onClose} />
         <div className={btnPaginated}>
-          <button onClick={handleClickPrevious}>
-            <ion-icon name="arrow-back-outline"></ion-icon>
-          </button>
-          <button onClick={handleClickNext}>
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-          </button>
+          <div>
+            {currentPage !== 1 && (
+              <button onClick={handleClickPrevious}>
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </button>
+            )}
+          </div>
+          <div>
+            {currentPage !== numPages && (
+              <button onClick={handleClickNext}>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>
