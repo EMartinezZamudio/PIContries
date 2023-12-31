@@ -1,0 +1,43 @@
+.wrapperDataActivity {
+  display: flex;
+  border-top: 1px solid #8395a7;
+}
+
+.wrapperDataActivity div {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapperDataActivity span {
+  margin-left: 10px;
+}
+
+.divNombre {
+  width: 300px;
+  border-right: 2px solid transparent;
+}
+
+.divTipo {
+  width: 400px;
+  border-right: 2px solid transparent;
+}
+
+.divDificultad {
+  width: 100px;
+  border-right: 2px solid transparent;
+}
+
+.divTemporada {
+  width: 120px;
+  border-right: 2px solid transparent;
+}
+
+.divDuracion {
+  width: 100px;
+  border-right: 2px solid transparent;
+}
+
+.divCountries {
+  width: 280px;
+}

@@ -1,0 +1,47 @@
+.wrapperActivityHeader {
+  background-color: #2e86ab;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  height: 60px;
+  border-radius: 10px 10px 0 0;
+}
+
+.wrapperActivityHeader div {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapperActivityHeader span {
+  margin-left: 10px;
+}
+
+.divNombre {
+  width: 300px;
+  border-right: 2px solid #8395a7;
+}
+
+.divTipo {
+  width: 400px;
+  border-right: 2px solid #8395a7;
+}
+
+.divDificultad {
+  width: 100px;
+  border-right: 2px solid #8395a7;
+}
+
+.divTemporada {
+  width: 120px;
+  border-right: 2px solid #8395a7;
+}
+
+.divDuracion {
+  width: 100px;
+  border-right: 2px solid #8395a7;
+}
+
+.divCountries {
+  width: 280px;
+}
