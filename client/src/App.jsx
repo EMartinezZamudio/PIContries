@@ -18,8 +18,8 @@ function App() {
 
   const body = document.querySelector("body");
   if (pathname === "/") body.className = "bg-landing";
-  if (pathname === "/home") body.className = "bg-home";
-  if (pathname === "/activities") body.className = "bg-activity";
+  else if (pathname === PATHROUTES.HOME) body.className = "bg-home";
+  else body.className = "bg-activity";
 
   return (
     <div className={app}>
