@@ -1,5 +1,5 @@
 const ActivityBox = ({ data }) => {
-  const { nombre, tipo, dificultad, temporada, duracion } = data;
+  const { nombre, tipo, dificultad, temporada, duracion, Countries } = data;
 
   return (
     <div>
@@ -8,6 +8,7 @@ const ActivityBox = ({ data }) => {
       <span>{dificultad}</span>
       <span>{temporada}</span>
       <span>{duracion}</span>
+      <span>{Countries.map((country) => country.name).join(", ")}</span>
     </div>
   );
 };
