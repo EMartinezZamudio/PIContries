@@ -38,8 +38,9 @@ const useCreateActivity = () => {
       }
     } catch (error) {
       const status = error.response.status;
+      if (status === 404) return alert("Pais no encontrado");
       if (status === 409) return alert("Actividad ya creada");
-      alert(error.massege);
+      alert(error.message);
     }
   };
 
