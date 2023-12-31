@@ -23,7 +23,7 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? btnActive : btnPending)}
-          to={PATHROUTES.FORM}
+          to={PATHROUTES.ACTIVITIES}
         >
           Actividades
         </NavLink>

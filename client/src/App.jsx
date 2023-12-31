@@ -7,6 +7,7 @@ import Landing from "./views/Landing/Landing";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./views/Home/Home";
 import Detail from "./views/Detail/Detail";
+import Activities from "./components/Activities/Activities";
 import Form from "./components/Form/Form";
 
 // estilos
@@ -18,6 +19,7 @@ function App() {
   const body = document.querySelector("body");
   if (pathname === "/") body.className = "bg-landing";
   if (pathname === "/home") body.className = "bg-home";
+  if (pathname === "/activities") body.className = "bg-activity";
 
   return (
     <div className={app}>
@@ -26,6 +28,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path={PATHROUTES.HOME} element={<Home />} />
         <Route path={PATHROUTES.DETAIL} element={<Detail />} />
+        <Route path={PATHROUTES.ACTIVITIES} element={<Activities />} />
         <Route path={PATHROUTES.FORM} element={<Form />} />
       </Routes>
     </div>
