@@ -8,10 +8,25 @@ import {
   PREVIOUS_PAGE,
   ORDER_CARDS,
   FILTER_CARDS,
+  ADD_ACTIVITIES,
 } from "./actionTypes";
 
 // helpers
 import URLS from "../helpers/Urls.helpers";
+
+export const addActivities = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`${URLS.ACTIVITIES}`);
+      return dispatch({
+        type: ADD_ACTIVITIES,
+        payload: data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+};
 
 export const addCard = (name) => {
   return async (dispatch) => {
@@ -23,7 +38,7 @@ export const addCard = (name) => {
       });
     } catch (error) {
       const status = error.response.status;
-      if (status === 404) alert("Pais no encontrado");
+      if (status === 404) return alert("Pais no encontrado");
       throw new Error(error.message);
     }
   };

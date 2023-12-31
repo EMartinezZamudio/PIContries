@@ -9,6 +9,7 @@ import {
   PREVIOUS_PAGE,
   ORDER_CARDS,
   FILTER_CARDS,
+  ADD_ACTIVITIES,
 } from "./actionTypes";
 
 const initialState = {
@@ -17,10 +18,17 @@ const initialState = {
   currentCards: [],
   page: 1,
   currentPage: 1,
+  activities: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case ADD_ACTIVITIES:
+      return {
+        ...state,
+        activities: payload,
+      };
+
     case ADD_CARD:
       for (let card of state.allCards) {
         if (payload.id === card.id) {
