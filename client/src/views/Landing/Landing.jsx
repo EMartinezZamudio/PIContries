@@ -1,10 +1,20 @@
 // modulos
 import { Link } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { startCountries } from "../../redux/actions";
+
 // estilos
 import { landing, btnLanding, tituloLanding } from "./Landing.module.css";
 
 const Landing = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(startCountries());
+  }, [dispatch]);
+
   return (
     <div className={landing}>
       <p className={tituloLanding}>P.I. Countries</p>
