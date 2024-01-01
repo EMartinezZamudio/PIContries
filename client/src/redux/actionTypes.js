@@ -5,3 +5,4 @@ export const PREVIOUS_PAGE = "PREVIOUS_PAGE";
 export const ORDER_CARDS = "ORDER_CARDS";
 export const FILTER_CARDS = "FILTER_CARDS";
 export const ADD_ACTIVITIES = "ADD_ACTIVITIES";
+export const START_COUNTRIES = "START_COUNTRIES";

@@ -9,10 +9,25 @@ import {
   ORDER_CARDS,
   FILTER_CARDS,
   ADD_ACTIVITIES,
+  START_COUNTRIES,
 } from "./actionTypes";
 
 // helpers
 import URLS from "../helpers/Urls.helpers";
+
+export const startCountries = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`${URLS.COUNTRIES}?pag=1`);
+      return dispatch({
+        type: START_COUNTRIES,
+        payload: data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+};
 
 export const addActivities = () => {
   return async (dispatch) => {

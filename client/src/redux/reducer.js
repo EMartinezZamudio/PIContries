@@ -10,6 +10,7 @@ import {
   ORDER_CARDS,
   FILTER_CARDS,
   ADD_ACTIVITIES,
+  START_COUNTRIES,
 } from "./actionTypes";
 
 const initialState = {
@@ -23,6 +24,23 @@ const initialState = {
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case START_COUNTRIES:
+      if (payload) {
+        const length = payload.length;
+        const page = numberPages(length);
+        return {
+          ...state,
+          allCards: payload,
+          cards: payload,
+          currentCards: payload,
+          page,
+          currentPage: page,
+        };
+      }
+      return {
+        ...state,
+      };
+
     case ADD_ACTIVITIES:
       return {
         ...state,
