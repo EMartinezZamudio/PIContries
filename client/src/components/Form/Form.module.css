@@ -1,4 +1,70 @@
 .wrapperForm {
+  margin: 60px 0 30px 0;
+  background-color: #020d14;
   display: flex;
   flex-direction: column;
+  padding: 20px 40px 20px 40px;
+}
+
+.wrapperForm > div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.wrapperForm h2 {
+  font-size: 38px;
+  margin: 0;
+}
+
+.wrapperForm select {
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+}
+
+.wrapperForm input {
+  font-size: 18px;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+}
+
+.wrapperForm span {
+  color: #c03221;
+}
+
+.wrapperForm button {
+  margin-top: 40px;
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 125px;
+  transition: 210ms;
+}
+
+.wrapperForm button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.labelForm {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+
+.divDificultad {
+  display: flex;
+  align-items: center;
+}
+
+.divDificultad label {
+  margin: 5px;
+  display: flex;
+  align-items: center;
 }
