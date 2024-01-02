@@ -5,6 +5,7 @@ const getCountries = require("../controllers/getCountries");
 const countryDetail = require("../controllers/countryDetail");
 const createActivity = require("../controllers/createActivity");
 const getActivities = require("../controllers/getActivities");
+const deleteActivity = require("../controllers/deleteActivity");
 
 const router = Router();
 
@@ -38,6 +39,16 @@ router.get("/activities", async (req, res) => {
   try {
     const activities = await getActivities();
     res.status(200).json(activities);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.delete("/activities/:idActividad", async (req, res) => {
+  try {
+    const { idActividad } = req.params;
+    const response = await deleteActivity(idActividad);
+    res.status(200).json({ message: response });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
