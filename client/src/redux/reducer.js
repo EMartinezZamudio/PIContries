@@ -1,5 +1,9 @@
 // helpers
 import { cardsForPage, numberPages } from "../helpers/Paginated.helpers";
+import {
+  continentValidation,
+  activityValidation,
+} from "../helpers/Filter.helpers";
 
 // actionTypes
 import {
@@ -8,7 +12,8 @@ import {
   NEXT_PAGE,
   PREVIOUS_PAGE,
   ORDER_CARDS,
-  FILTER_CARDS,
+  FILTER_CONTINENT,
+  FILTER_ACTIVITY,
   ADD_ACTIVITIES,
   START_COUNTRIES,
 } from "./actionTypes";
@@ -171,19 +176,10 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
       };
 
-    case FILTER_CARDS:
+    case FILTER_CONTINENT:
       if (payload) {
         const cardsFiltradas = state.allCards.filter((card) => {
-          const NA = card.continente === "North America";
-          const SA = card.continente === "South America";
-
-          if (payload === "Todos") return card;
-          if (payload === "Asia") return card.continente === "Asia";
-          if (payload === "Africa") return card.continente === "Africa";
-          if (payload === "Europe") return card.continente === "Europe";
-          if (payload === "Oceania") return card.continente === "Oceania";
-          if (payload === "Antarctica") return card.continente === "Antarctica";
-          if (payload === "America") return NA || SA;
+          return continentValidation(payload, card);
         });
 
         const page = numberPages(cardsFiltradas.length);
@@ -196,6 +192,31 @@ const rootReducer = (state = initialState, { type, payload }) => {
           page,
         };
       }
+      return {
+        ...state,
+      };
+
+    case FILTER_ACTIVITY:
+      if (payload) {
+        const cardsFiltradas = state.allCards.filter((card) => {
+          for (let activity of card.Activities) {
+            const data = activity.tipo;
+            const result = activityValidation(payload, data);
+            if (result === true) return true;
+          }
+        });
+
+        const page = numberPages(cardsFiltradas.length);
+        const res = cardsForPage(1, cardsFiltradas);
+        return {
+          ...state,
+          cards: cardsFiltradas,
+          currentCards: res,
+          currentPage: 1,
+          page,
+        };
+      }
+
       return {
         ...state,
       };

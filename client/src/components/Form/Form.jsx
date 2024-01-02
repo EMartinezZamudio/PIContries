@@ -14,10 +14,10 @@ const Form = () => {
         <span>{errors.tipo && errors.tipo}</span>
         <select name="tipo" onChange={handleChange}>
           <option value="">Elije una opcion</option>
-          <option value="op 1">Visitas a Monumentos y Sitios Históricos</option>
+          <option value="op 1">Visitas a Sitios Históricos</option>
           <option value="op 2">Museos y Galerías de Arte</option>
-          <option value="op 3">Recorridos Culturales y Gastronómicos</option>
-          <option value="op 4">Ecoturismo y Aventuras al Aire Libre</option>
+          <option value="op 3">Recorridos Culturales</option>
+          <option value="op 4">Aventuras al Aire Libre</option>
           <option value="op 5">Playas y Actividades Acuáticas</option>
           <option value="op 6">Cruceros</option>
           <option value="op 7">Eventos y Festivales</option>

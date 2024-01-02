@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { orderCards, filterCards } from "../redux/actions";
+import { orderCards, filterContinent, filterActivity } from "../redux/actions";
 
 const useOrderFilter = () => {
   const dispatch = useDispatch();
@@ -32,14 +32,20 @@ const useOrderFilter = () => {
     }
   };
 
-  const handleFilter = (event) => {
+  const handleFilterContinent = (event) => {
     const action = event.target.value;
-    dispatch(filterCards(action));
+    dispatch(filterContinent(action));
+  };
+
+  const handleFilterActivity = (event) => {
+    const action = event.target.value;
+    dispatch(filterActivity(action));
   };
 
   return {
     handleOrder,
-    handleFilter,
+    handleFilterContinent,
+    handleFilterActivity,
   };
 };
 

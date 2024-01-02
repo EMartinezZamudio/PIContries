@@ -1,15 +1,15 @@
 const activityTypes = (value) => {
   if (value === "op 1") {
-    return "Visitas a Monumentos y Sitios Históricos";
+    return "Visitas a Sitios Históricos";
   }
   if (value === "op 2") {
     return "Museos y Galerías de Arte";
   }
   if (value === "op 3") {
-    return "Recorridos Culturales y Gastronómicos";
+    return "Recorridos Culturales";
   }
   if (value === "op 4") {
-    return "Ecoturismo y Aventuras al Aire Libre";
+    return "Aventuras al Aire Libre";
   }
   if (value === "op 5") {
     return "Playas y Actividades Acuáticas";

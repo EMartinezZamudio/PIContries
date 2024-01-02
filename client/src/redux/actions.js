@@ -7,7 +7,8 @@ import {
   NEXT_PAGE,
   PREVIOUS_PAGE,
   ORDER_CARDS,
-  FILTER_CARDS,
+  FILTER_CONTINENT,
+  FILTER_ACTIVITY,
   ADD_ACTIVITIES,
   START_COUNTRIES,
 } from "./actionTypes";
@@ -85,9 +86,16 @@ export const orderCards = (value) => {
   };
 };
 
-export const filterCards = (value) => {
+export const filterContinent = (value) => {
   return {
-    type: FILTER_CARDS,
+    type: FILTER_CONTINENT,
+    payload: value,
+  };
+};
+
+export const filterActivity = (value) => {
+  return {
+    type: FILTER_ACTIVITY,
     payload: value,
   };
 };

@@ -28,7 +28,8 @@ const Home = () => {
   const dispatch = useDispatch();
   const { currentPage, renderCards, numPages } = usePaginated();
   const { handleClickNext, handleClickPrevious } = usePaginated();
-  const { handleOrder, handleFilter } = useOrderFilter();
+  const { handleOrder, handleFilterContinent, handleFilterActivity } =
+    useOrderFilter();
 
   const onClose = (id) => {
     dispatch(removeCard(id));
@@ -54,7 +55,7 @@ const Home = () => {
             <div className={selectFilter}>
               <div>
                 <span>Continente:</span>
-                <select name="continente" onChange={handleFilter}>
+                <select name="continente" onChange={handleFilterContinent}>
                   <option value="Todos">Todos</option>
                   <option value="America">America</option>
                   <option value="Asia">Asia</option>
@@ -66,8 +67,18 @@ const Home = () => {
               </div>
               <div>
                 <span>Actividad Turistica:</span>
-                <select>
-                  <option value="">un opcion aqui</option>
+                <select name="Actividad" onChange={handleFilterActivity}>
+                  <option value="">Elije un opcion</option>
+                  <option value="op 1">Visitas a Sitios Históricos</option>
+                  <option value="op 2">Museos y Galerías de Arte</option>
+                  <option value="op 3">Recorridos Culturales</option>
+                  <option value="op 4">Aventuras al Aire Libre</option>
+                  <option value="op 5">Playas y Actividades Acuáticas</option>
+                  <option value="op 6">Cruceros</option>
+                  <option value="op 7">Eventos y Festivales</option>
+                  <option value="op 8">Deportes y Aventuras Extremas</option>
+                  <option value="op 9">Safaris y Observación de Fauna</option>
+                  <option value="op 10">Relajación y Bienestar</option>
                 </select>
               </div>
             </div>

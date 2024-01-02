@@ -1,4 +1,4 @@
-const { Country } = require("../db");
+const { Country, Activity } = require("../db");
 const { Op } = require("sequelize");
 
 const getCountries = async (name, pag) => {
@@ -13,6 +13,11 @@ const getCountries = async (name, pag) => {
             [Op.iLike]: `%${name.substring(0, aux)}%`,
           },
         },
+        include: {
+          model: Activity,
+          attributes: ["nombre", "tipo"],
+          through: { attributes: [] },
+        },
       });
       aux--;
     }
@@ -22,7 +27,15 @@ const getCountries = async (name, pag) => {
   if (pag) {
     const limit = 10;
     let offset = (pag - 1) * limit;
-    const countries = await Country.findAll({ offset, limit });
+    const countries = await Country.findAll({
+      offset,
+      limit,
+      include: {
+        model: Activity,
+        attributes: ["nombre", "tipo"],
+        through: { attributes: [] },
+      },
+    });
     return countries;
   }
 
