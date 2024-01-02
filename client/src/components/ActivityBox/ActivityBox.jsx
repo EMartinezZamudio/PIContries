@@ -1,3 +1,6 @@
+import axios from "axios";
+import URLS from "../../helpers/Urls.helpers";
+
 import {
   wrapperDataActivity,
   divNombre,
@@ -9,7 +12,11 @@ import {
 } from "./ActivityBox.module.css";
 
 const ActivityBox = ({ data }) => {
-  const { nombre, tipo, dificultad, temporada, duracion, Countries } = data;
+  const { id, nombre, tipo, dificultad, temporada, duracion, Countries } = data;
+
+  const handleClick = async () => {
+    await axios.delete(`${URLS.ACTIVITIES}/${id}`);
+  };
 
   return (
     <div className={wrapperDataActivity}>
@@ -30,6 +37,9 @@ const ActivityBox = ({ data }) => {
       </div>
       <div className={divCountries}>
         <span>{Countries.map((country) => country.name).join(", ")}</span>
+      </div>
+      <div>
+        <button onClick={handleClick}>X</button>
       </div>
     </div>
   );

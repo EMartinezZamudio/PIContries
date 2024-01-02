@@ -19,7 +19,7 @@ const Activities = () => {
 
   useEffect(() => {
     dispatch(addActivities());
-  }, [dispatch]);
+  }, [dispatch, activities]);
 
   return (
     <section className={wrapperActivities}>
