@@ -42,57 +42,6 @@
   height: 70px;
 }
 
-.divOrder {
-  color: #3498db;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 200px;
-  border-radius: 8px 8px 0 0;
-  border: 2px solid #3498db;
-  border-bottom: none;
-}
-
-.btnOrder {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.btnOrder button {
-  background-color: #8395a7;
-  border: none;
-  border-radius: 2px;
-}
-
-.divFilter {
-  width: 600px;
-  color: #3498db;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 8px 8px 0 0;
-  border: 2px solid #3498db;
-  border-bottom: none;
-}
-
-.selectFilter {
-  color: #8395a7;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.selectFilter select {
-  background-color: #8395a7;
-}
-
-.selectFilter span {
-  margin-right: 5px;
-}
-
 .btnPaginated {
   width: 90%;
   display: flex;
