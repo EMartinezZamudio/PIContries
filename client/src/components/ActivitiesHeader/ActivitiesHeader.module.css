@@ -18,12 +18,12 @@
 }
 
 .divNombre {
-  width: 300px;
+  width: 355px;
   border-right: 2px solid #8395a7;
 }
 
 .divTipo {
-  width: 400px;
+  width: 300px;
   border-right: 2px solid #8395a7;
 }
 
@@ -43,5 +43,5 @@
 }
 
 .divCountries {
-  width: 280px;
+  width: 330px;
 }

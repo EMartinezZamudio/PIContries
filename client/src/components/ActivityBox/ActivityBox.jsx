@@ -9,6 +9,7 @@ import {
   divTemporada,
   divDuracion,
   divCountries,
+  btnDelete,
 } from "./ActivityBox.module.css";
 
 const ActivityBox = ({ data }) => {
@@ -39,7 +40,9 @@ const ActivityBox = ({ data }) => {
         <span>{Countries.map((country) => country.name).join(", ")}</span>
       </div>
       <div>
-        <button onClick={handleClick}>X</button>
+        <button onClick={handleClick} className={btnDelete}>
+          <ion-icon name="trash-outline"></ion-icon>
+        </button>
       </div>
     </div>
   );

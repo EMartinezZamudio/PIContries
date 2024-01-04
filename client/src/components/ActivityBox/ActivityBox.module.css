@@ -14,12 +14,12 @@
 }
 
 .divNombre {
-  width: 300px;
+  width: 350px;
   border-right: 2px solid transparent;
 }
 
 .divTipo {
-  width: 400px;
+  width: 300px;
   border-right: 2px solid transparent;
 }
 
@@ -39,5 +39,26 @@
 }
 
 .divCountries {
-  width: 280px;
+  width: 300px;
+}
+
+.btnDelete {
+  background-color: #ff3f34;
+  display: grid;
+  place-content: center;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: 150ms;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.btnDelete:hover {
+  background-color: transparent;
+  border: 2px solid #ff3f34;
+  border-radius: 5px;
+  color: #ff3f34;
+  cursor: pointer;
 }

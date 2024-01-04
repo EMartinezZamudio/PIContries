@@ -25,3 +25,12 @@
   background-color: #020d14;
   border-radius: 0 0 10px 10px;
 }
+
+.divActivitiesNull {
+  font-size: 32px;
+  color: #808e9b;
+  width: 100%;
+  height: 100px;
+  display: grid;
+  place-items: center;
+}

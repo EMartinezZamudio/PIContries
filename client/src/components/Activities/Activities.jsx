@@ -11,6 +11,7 @@ import {
   wrapperActivities,
   divBtn,
   divActivities,
+  divActivitiesNull,
 } from "./Activities.module.css";
 
 const Activities = () => {
@@ -29,6 +30,9 @@ const Activities = () => {
         </Link>
       </div>
       <ActivitiesHeader />
+      {!activities[0] && (
+        <div className={divActivitiesNull}>No Hay Actividades Creadas</div>
+      )}
       <div className={divActivities}>
         {activities.map((activity) => {
           return <ActivityBox key={activity.id} data={activity} />;
