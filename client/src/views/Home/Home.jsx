@@ -19,6 +19,8 @@ import {
   btnPaginated,
   divPagina,
   colorNumPagina,
+  btnAddDelete,
+  divCountriesNull,
 } from "./Home.module.css";
 
 const Home = () => {
@@ -48,15 +50,18 @@ const Home = () => {
         <div className={divOrderFilter}>
           <OrderCountries />
           <FilterCountries />
-          <div>
+          <div className={btnAddDelete}>
             <button onClick={handleClickAll}>Agrega Todos</button>
           </div>
-          <div>
+          <div className={btnAddDelete}>
             <button onClick={handleClickDelete}>Eliminar Todos</button>
           </div>
         </div>
       </div>
       <div className={divCars}>
+        {!renderCards[0] && (
+          <div className={divCountriesNull}>No hay Paises Agregados</div>
+        )}
         <Cards data={renderCards} onClose={onClose} />
         <div className={btnPaginated}>
           <div>
