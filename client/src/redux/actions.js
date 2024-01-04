@@ -11,6 +11,8 @@ import {
   FILTER_ACTIVITY,
   ADD_ACTIVITIES,
   START_COUNTRIES,
+  ALL_COUNTRIES,
+  DELETE_COUNTRIES,
 } from "./actionTypes";
 
 // helpers
@@ -41,6 +43,26 @@ export const addActivities = () => {
     } catch (error) {
       throw new Error(error.message);
     }
+  };
+};
+
+export const allCountries = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`${URLS.COUNTRIES}`);
+      return dispatch({
+        type: ALL_COUNTRIES,
+        payload: data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+};
+
+export const deleteCountries = () => {
+  return {
+    type: DELETE_COUNTRIES,
   };
 };
 

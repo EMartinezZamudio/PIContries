@@ -4,7 +4,7 @@ import useOrderFilter from "../../hooks/useOrderFilter";
 import usePaginated from "../../hooks/usePaginated";
 
 // actions
-import { removeCard } from "../../redux/actions";
+import { removeCard, allCountries, deleteCountries } from "../../redux/actions";
 
 // componentes
 import Cards from "../../components/Cards/Cards";
@@ -33,6 +33,14 @@ const Home = () => {
 
   const onClose = (id) => {
     dispatch(removeCard(id));
+  };
+
+  const handleClickAll = () => {
+    dispatch(allCountries());
+  };
+
+  const handleClickDelete = () => {
+    dispatch(deleteCountries());
   };
 
   return (
@@ -82,6 +90,12 @@ const Home = () => {
                 </select>
               </div>
             </div>
+          </div>
+          <div>
+            <button onClick={handleClickAll}>Agrega Todos</button>
+          </div>
+          <div>
+            <button onClick={handleClickDelete}>Eliminar Todos</button>
           </div>
         </div>
       </div>

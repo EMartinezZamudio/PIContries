@@ -16,6 +16,8 @@ import {
   FILTER_ACTIVITY,
   ADD_ACTIVITIES,
   START_COUNTRIES,
+  ALL_COUNTRIES,
+  DELETE_COUNTRIES,
 } from "./actionTypes";
 
 const initialState = {
@@ -50,6 +52,35 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         activities: payload,
+      };
+
+    case ALL_COUNTRIES:
+      if (payload) {
+        const length = payload.length;
+        const page = numberPages(length);
+        const res = cardsForPage(1, payload);
+        return {
+          ...state,
+          allCards: payload,
+          cards: payload,
+          currentCards: res,
+          page,
+          currentPage: 1,
+        };
+      }
+
+      return {
+        ...state,
+      };
+
+    case DELETE_COUNTRIES:
+      return {
+        ...state,
+        allCards: [],
+        cards: [],
+        currentCards: [],
+        page: 1,
+        currentPage: 1,
       };
 
     case ADD_CARD:
