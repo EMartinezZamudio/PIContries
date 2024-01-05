@@ -1,9 +1,6 @@
 // helpers
 import { cardsForPage, numberPages } from "../helpers/Paginated.helpers";
-import {
-  continentValidation,
-  activityValidation,
-} from "../helpers/Filter.helpers";
+import { functionFilterCards } from "../helpers/Filter.helpers";
 
 // actionTypes
 import {
@@ -12,8 +9,7 @@ import {
   NEXT_PAGE,
   PREVIOUS_PAGE,
   ORDER_CARDS,
-  FILTER_CONTINENT,
-  FILTER_ACTIVITY,
+  FILTER_CARDS,
   ADD_ACTIVITIES,
   START_COUNTRIES,
   ALL_COUNTRIES,
@@ -207,12 +203,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
       };
 
-    case FILTER_CONTINENT:
+    case FILTER_CARDS:
       if (payload) {
-        const cardsFiltradas = state.allCards.filter((card) => {
-          return continentValidation(payload, card);
-        });
-
+        const cardsFiltradas = functionFilterCards(state.allCards, payload);
         const page = numberPages(cardsFiltradas.length);
         const res = cardsForPage(1, cardsFiltradas);
         return {
@@ -223,31 +216,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
           page,
         };
       }
-      return {
-        ...state,
-      };
-
-    case FILTER_ACTIVITY:
-      if (payload) {
-        const cardsFiltradas = state.allCards.filter((card) => {
-          for (let activity of card.Activities) {
-            const data = activity.tipo;
-            const result = activityValidation(payload, data);
-            if (result === true) return true;
-          }
-        });
-
-        const page = numberPages(cardsFiltradas.length);
-        const res = cardsForPage(1, cardsFiltradas);
-        return {
-          ...state,
-          cards: cardsFiltradas,
-          currentCards: res,
-          currentPage: 1,
-          page,
-        };
-      }
-
       return {
         ...state,
       };

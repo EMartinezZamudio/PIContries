@@ -2,7 +2,7 @@ import useOrderFilter from "../../hooks/useOrderFilter";
 import { divFilter, selectFilter } from "./FilterCountries.module.css";
 
 const FilterCountries = () => {
-  const { handleFilterActivity, handleFilterContinent } = useOrderFilter();
+  const { handleFilter } = useOrderFilter();
 
   return (
     <div className={divFilter}>
@@ -10,7 +10,7 @@ const FilterCountries = () => {
       <div className={selectFilter}>
         <div>
           <span>Continente:</span>
-          <select name="continente" onChange={handleFilterContinent}>
+          <select name="continente" onChange={handleFilter}>
             <option value="Todos">Todos</option>
             <option value="America">America</option>
             <option value="Asia">Asia</option>
@@ -22,7 +22,7 @@ const FilterCountries = () => {
         </div>
         <div>
           <span>Actividad Turistica:</span>
-          <select name="Actividad" onChange={handleFilterActivity}>
+          <select name="actividad" onChange={handleFilter}>
             <option value="">Elije un opcion</option>
             <option value="op 1">Visitas a Sitios Históricos</option>
             <option value="op 2">Museos y Galerías de Arte</option>

@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { orderCards, filterContinent, filterActivity } from "../redux/actions";
+import { orderCards, filterCards } from "../redux/actions";
 
 const useOrderFilter = () => {
   const dispatch = useDispatch();
+  const [stateFilter, setStateFilter] = useState({
+    continente: "",
+    actividad: "",
+  });
   const [btn, setBtn] = useState({
     az: true,
     poblacion: true,
@@ -32,20 +36,16 @@ const useOrderFilter = () => {
     }
   };
 
-  const handleFilterContinent = (event) => {
+  const handleFilter = (event) => {
+    const name = event.target.name;
     const action = event.target.value;
-    dispatch(filterContinent(action));
-  };
-
-  const handleFilterActivity = (event) => {
-    const action = event.target.value;
-    dispatch(filterActivity(action));
+    setStateFilter({ ...stateFilter, [name]: action });
+    dispatch(filterCards({ ...stateFilter, [name]: action }));
   };
 
   return {
     handleOrder,
-    handleFilterContinent,
-    handleFilterActivity,
+    handleFilter,
   };
 };
 
