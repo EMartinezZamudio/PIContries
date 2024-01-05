@@ -46,6 +46,7 @@ const Home = () => {
         <div className={divPagina}>
           <span>Paguina: </span>
           <span className={colorNumPagina}>{currentPage}</span>
+          <span> / {numPages}</span>
         </div>
         <div className={divOrderFilter}>
           <OrderCountries />
