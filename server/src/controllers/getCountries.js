@@ -39,7 +39,13 @@ const getCountries = async (name, pag) => {
     return countries;
   }
 
-  const countries = await Country.findAll();
+  const countries = await Country.findAll({
+    include: {
+      model: Activity,
+      attributes: ["nombre", "tipo"],
+      through: { attributes: [] },
+    },
+  });
   return countries;
 };
 
