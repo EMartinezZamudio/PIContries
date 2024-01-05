@@ -1,5 +1,5 @@
 const REGEX = {
-  SOLO_LETRAS: /^[a-zA-ZñÑ, ]+$/,
+  SOLO_LETRAS: /^[a-zA-ZáéíóúüñÁÉÍÓÚÜ, ]+$/,
   NUMERO_ENTERO: /^[0-9]+$/,
 };
 
