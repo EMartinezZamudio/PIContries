@@ -1,9 +1,10 @@
 // modulos
 import { Link } from "react-router-dom";
+import { startCountries } from "../../redux/actions";
 
+// hooks
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { startCountries } from "../../redux/actions";
 
 // estilos
 import { landing, btnLanding, tituloLanding } from "./Landing.module.css";

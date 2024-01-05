@@ -1,9 +1,14 @@
+// modulos
 import { Link } from "react-router-dom";
-import PATHROUTES from "../../helpers/PathRoutes.helpers";
-import ActivityBox from "../ActivityBox/ActivityBox";
 import { addActivities } from "../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import PATHROUTES from "../../helpers/PathRoutes.helpers";
+
+// hooks
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+// componentes
+import ActivityBox from "../ActivityBox/ActivityBox";
 import ActivitiesHeader from "../ActivitiesHeader/ActivitiesHeader";
 
 // estilos

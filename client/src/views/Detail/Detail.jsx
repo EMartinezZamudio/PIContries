@@ -1,3 +1,4 @@
+// custom hook
 import useDetail from "../../hooks/useDetail";
 
 // estlos
