@@ -6,7 +6,7 @@ const saveDataCountries = async () => {
 
   const promises = data.map((country) => {
     const {
-      name,
+      translations,
       continents,
       capital,
       subregion,
@@ -23,7 +23,7 @@ const saveDataCountries = async () => {
 
     const newCountry = {
       id: cca3,
-      name: name.common,
+      name: translations.spa.common,
       continente: continents[0],
       capital: capitalNombre,
       subregion,
@@ -37,7 +37,6 @@ const saveDataCountries = async () => {
 
   return Promise.all(promises).then(() => {
     return "informacion guardada en la base de datos";
-    continents;
   });
 };
 
