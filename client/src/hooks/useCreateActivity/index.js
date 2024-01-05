@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import URLS from "../../helpers/Urls.helpers";
 import activityTypes from "./activityTypes";
 import validationData from "./validationData";
 
 const useCreateActivity = () => {
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [activityData, setActivityData] = useState({
     tipo: "",
@@ -34,7 +36,8 @@ const useCreateActivity = () => {
 
       const response = await axios.post(URLS.ACTIVITIES, activityData);
       if (response.status === 201) {
-        return alert("Actividad creada exitosamente");
+        alert("Actividad creada exitosamente");
+        return navigate("/activities");
       }
     } catch (error) {
       const status = error.response.status;

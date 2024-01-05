@@ -23,7 +23,9 @@ const validationData = (data) => {
   if (!data.paises[0]) errors.paises = "Defina minimo un pais";
   else {
     data.paises.forEach((pais) => {
-      if (!REGEX.SOLO_LETRAS.test(pais)) errors.paises = "Solo letras";
+      if (pais) {
+        if (!REGEX.SOLO_LETRAS.test(pais)) errors.paises = "Solo letras";
+      }
     });
   }
 
