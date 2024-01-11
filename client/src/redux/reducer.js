@@ -82,9 +82,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case ADD_CARD:
       for (let card of state.allCards) {
         if (payload.id === card.id) {
-          alert("Pais ya agregado");
+          const length = state.allCards.indexOf(card) + 1;
+          const page = numberPages(length);
+          const res = cardsForPage(page, state.allCards);
           return {
             ...state,
+            currentCards: res,
+            currentPage: page,
           };
         }
       }
